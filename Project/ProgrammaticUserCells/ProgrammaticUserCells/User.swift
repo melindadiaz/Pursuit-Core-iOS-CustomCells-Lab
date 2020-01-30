@@ -42,7 +42,7 @@ struct Location: Codable {
     }
     
     //https://stackoverflow.com/questions/47935705/using-codable-with-key-that-is-sometimes-an-int-and-other-times-a-string
-    
+    //The code is sometimes a Int and sometimes a string so
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         street = try container.decode(Street.self, forKey: .street)
