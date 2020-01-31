@@ -9,19 +9,18 @@
 import UIKit
 
 class MainView: UIView {
-
-    
-    
     
     
     public lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: 400, height: 400)
         //CgRect is a rectangle that has the size set and origin set to zero
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .systemGreen
         return collectionView
     }()
+ 
     
     //One is based off of Storyboard
     required init?(coder: NSCoder) {
@@ -52,4 +51,6 @@ class MainView: UIView {
         
         ])
     }
+    
+    
 }
