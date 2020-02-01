@@ -13,4 +13,23 @@ class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var imageViewCell: UIImageView!
     
+    
+    func configureCell(instance: User) {
+        imageViewCell.getImages(imageUrl: instance.picture.large) { [weak self] (result) in
+            switch result {
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.imageViewCell.image = UIImage(named: "starTrek")
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.imageViewCell.image = image
+                }
+            }
+        }
+    }
+    
+    
+    
+    
 }

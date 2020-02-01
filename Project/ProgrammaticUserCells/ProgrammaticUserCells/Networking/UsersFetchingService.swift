@@ -9,8 +9,7 @@ class UsersFetchingService {
     // MARK: - Internal Methods
 
     func getUsers(completionHandler: @escaping (Result<[User], AppError>) -> Void) {
-        NetworkHelper.manager.performDataTask(withUrl: URL(string: usersEndpoint)!,
-                                              andMethod: .get) { (result) in
+        NetworkHelper.manager.performDataTask(withUrl: URL(string: usersEndpoint)!,andMethod: .get) { (result) in
             switch result {
             case let .success(data):
                 let users = User.getUsers(from: data)
